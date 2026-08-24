@@ -1,0 +1,63 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "build",
+            "type": "process",
+            "command": "C:/Users/xiao/.vscode/extensions/cl.eide-3.27.2/res/tools/win32/unify_builder/unify_builder.exe",
+            "args": [
+                "-p",
+                "${workspaceFolder}/build/Target 1/builder.params",
+                "--no-color"
+            ],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
+            "problemMatcher": []
+        },
+        {
+            "label": "flash (ST-Link)",
+            "type": "process",
+            "command": "C:/Users/xiao/AppData/Local/stm32cube/bundles/programmer/2.22.0+st.1/bin/STM32_Programmer_CLI.exe",
+            "args": [
+                "-c",
+                "port=SWD",
+                "-w",
+                "${workspaceFolder}/build/Target 1/Project.hex",
+                "-v",
+                "-rst"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "build and flash (ST-Link)",
+            "dependsOrder": "sequence",
+            "dependsOn": [
+                "rebuild",
+                "flash (ST-Link)"
+            ],
+            "problemMatcher": []
+        },
+        {
+            "label": "rebuild",
+            "type": "process",
+            "command": "C:/Users/xiao/.vscode/extensions/cl.eide-3.27.2/res/tools/win32/unify_builder/unify_builder.exe",
+            "args": [
+                "-p",
+                "${workspaceFolder}/build/Target 1/builder.params",
+                "--rebuild",
+                "--no-color"
+            ],
+            "group": "build",
+            "problemMatcher": []
+        },
+        {
+            "label": "clean",
+            "type": "shell",
+            "command": "${command:eide.project.clean}",
+            "group": "build",
+            "problemMatcher": []
+        }
+    ]
+}

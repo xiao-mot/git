@@ -1,0 +1,27 @@
+# ===== Keil MDK 编译产物 =====
+/Objects/
+/Listings/
+/DebugConfig/
+*.uvguix.*
+*.uvoptx
+*.bak
+*_sct.Bak
+
+# ===== EIDE 插件 =====
+/.eide/log
+/.eide/env.ini
+source-hashes-before.txt
+
+# ===== VS Code 本地文件 =====
+/.vscode/launch.json
+/.vscode/uv4.log.lock
+/.vscode/keil-assistant.log
+/.settings
+
+# ===== 其他构建产物 =====
+/build
+/bin
+/obj
+/out
+*.ept
+*.eide-template
