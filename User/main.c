@@ -97,6 +97,7 @@ int main(void)
     Angle_Yaw = Angle.yaw;        // 保持当前方向（MPU6050 解算航向）
     //Angle_Yaw = global_angle;   // HWT101 备选：保持当前方向
     Mode_Flag = TRANS_LEFT_MODE;  // 进入左横移模式，由 TIM6 中断调度 Trans_Left_Mode_Run
+    Mode_Flag = REVOLVE_MODE_150;
 
     while (1)
     {
